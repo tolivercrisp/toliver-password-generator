@@ -12,7 +12,7 @@ function randomInteger(min, max) {
 }
 
 // Function -- random item from a generated list
-function ranItem(list) {
+function randomChoice(list) {
   return list[randomInteger(list.length)]
 }
 
@@ -48,26 +48,47 @@ function generatePassword() {
     window.alert("Requested password length must be between 8 and 128.")
   }
 
+// If the user wants to include a specific character type, push each respective character type array
+// to be stored in the passwordElementStorage variable
+if (numberConfirm) {
+    passwordElementStorage.push(numberArray)
+  }
 
+  if (upperConfirm) {
+    passwordElementStorage.push(upperArray)
+  }
 
+  if (lowerConfirm) {
+    passwordElementStorage.push(lowerArray)
+  }
 
+  if (symbolConfirm) {
+    passwordElementStorage.push(symbolArray)
+  }
 
+//
+if (passwordElementStorage.length === 0) {
+    window.alert("Please select at least one character type.")
+    return
+  }
 
+// 'For Loop' that stores random characters in the 'final password' variable until the # of characters
+// equals the length of 'userLengthChoice'  
+  for (var i = 0; i < userLengthChoice; i++) {
+    var randomElementList = randomChoice(passwordElementStorage)
+    var randomCharacter = randomChoice(randomElementList)
+    finalPassword += randomCharacter
+  }
 
-
-
+    // Returns the finalized, generated password which will be passed on to 'writePassword()'
+    return finalPassword
 }
-
-
-
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
