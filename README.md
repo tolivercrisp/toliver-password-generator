@@ -20,7 +20,7 @@ No installation neccesary. Clone the repo to your local machine, open the code i
 Simply click the "Generate Password" button and, when prompted, choose which character types you would like to include in your generated password.
 
 ### Screenshots
-![Webpage with Generated Password](assets/password-generator.jpg)
+![Generated Password](./Assets/password-generator.jpg)
 
 ## License
 
