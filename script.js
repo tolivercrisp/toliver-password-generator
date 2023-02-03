@@ -46,6 +46,7 @@ function generatePassword() {
 //   Makes sure that the requested length is in the valid range, and if not, throws error message to client
   if (userLengthChoice < 8 || userLengthChoice > 128) {
     window.alert("Requested password length must be between 8 and 128.")
+    window.location.reload();
   }
 
 // If the user wants to include a specific character type, push each respective character type array
